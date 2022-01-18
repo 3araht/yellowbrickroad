@@ -104,7 +104,7 @@ Raspberry Pi Pico に yellowbrickroad のファームウェアを書き込みま
 [yellowbrickroad_led.uf2](https://github.com/3araht/yellowbrickroad/blob/main/yellowbrickroad_led.uf2) を ダウンロードします。  
 
 Raspberry Pi Pico の BOOTSEL ボタンを押しながらUSBケーブルで PC/Mac と接続します。  
-このことで、ブードローダ状態（＝ファームウェアを書き込める状態）になります。
+このことで、ブードローダ状態（＝ファームウェアを書き込める状態）になります。  
 <img width="700" alt="Raspberry Pi Pico" src="https://github.com/3araht/yellowbrickroad/blob/main/pictures/RaspberryPiPico.jpg">
 <img width="700" alt="Raspberry Pi Pico with USB cable" src="https://github.com/3araht/yellowbrickroad/blob/main/pictures/RaspberryPiPicoWithUSBcable.jpg">
 
