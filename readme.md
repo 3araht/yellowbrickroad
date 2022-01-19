@@ -2,7 +2,7 @@
 
 # yellowbrickroad キーボード
 "There’s no place like home.” カンザスに帰りたくなってこのキーボードを作りました（ウソ）。  
-yellowbrickroad は 53音（4オクターブちょっと）のコンパクトサイズMIDIキーボードキットです。頭脳部分に Raspberry Pi Pico を採用しています。
+yellowbrickroad は 53音（4オクターブちょっと）を螺旋状に配置した、コンパクトサイズMIDIキーボードキットです。頭脳部分に Raspberry Pi Pico を採用しています。
 
 縦は約20 cm, 横は約23 cm。A4用紙に収まるサイズです。  
 
@@ -31,7 +31,7 @@ iPad や iPhone で yellowbrickroad を使う場合には電源が必要です�
 
 # キーボードキット
 遊舎工房でお求めいただけます。  
-[遊舎工房 販売ページへのリンクはこちら]()(工事中)。  
+[遊舎工房 販売ページへのリンクはこちら](https://shop.yushakobo.jp/collections/keyboard/products/3442)。  
 
 BOOTH では、yellowbrickroad の他、クロマチックボタンアコーディオンを模した MIDIキーボードの giabalanai、 giabaLEnai、 giabaRInai、 giabaRInaix2、クロマトーンを模した chroamtonemini / chromatoneminipico がお求めいただけます。  
 [BOOTH 販売ページへのリンクはこちら](https://3araht.booth.pm/)。  
@@ -59,7 +59,7 @@ https://www.instagram.com/3araht/
 
 # yellowbrickroad keyboard
 "There’s no place like home.” I designed this keyboard since I wanted to go back to Kansas, LOL.  
-yellowbrickroad is a MIDI keyboard which has 53 keys (= 4 octaves+ ) to play notes. Raspberry Pi Pico is used as the "brain" of yellowbrickroad.  
+yellowbrickroad is a MIDI keyboard which has 53 keys (= 4 octaves+ ) placed spirally. Raspberry Pi Pico is used as the "brain" of yellowbrickroad.  
 
 Size: 20 cm (approx 8 inches) x 23 cm (approx 9 inches).  
 It fits in an A4 / Letter size paper.  
@@ -86,7 +86,7 @@ A detailed introduction is shown [here]()(under construction).
 
 # Keyboard kit
 It's available at Yushakobo.  
-Click [here]()(under construction) for Yushakobo's yellowbrickroad page.
+Click [here](https://shop.yushakobo.jp/collections/keyboard/products/3442) for Yushakobo's yellowbrickroad page.
 
 The keyboard kit is available from [BOOTH](https://3araht.booth.pm/).  
 Click [here](https://www.tenso.com/en/static/lp_shop_booth) for BOOTH overseas shipping!

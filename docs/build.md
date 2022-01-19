@@ -156,7 +156,7 @@ yellowbrickroad は Raspberry Pi Pico を:
 <img width="700" alt="Raspberry Pi Pico below the board" src="https://github.com/3araht/yellowbrickroad/blob/main/pictures/yellofbrickroad_RaspberryPiPicoBelowWithConthrough.jpg">  
 
 基板の裏面にコンスルーで実装した場合（オモテ面からみた図。BOOTSELがピンセットなどで押せるようになっています）。  
-<img width="700" alt="Raspberry Pi Pico below the board, top view" src="https://github.com/3araht/yellowbrickroad/blob/main/pictures/yellowbrickroad_RaspberryPiPicoBelowWithConthroughTopView.jpg.jpg">  
+<img width="700" alt="Raspberry Pi Pico below the board, top view" src="https://github.com/3araht/yellowbrickroad/blob/main/pictures/yellowbrickroad_RaspberryPiPicoBelowWithConthroughTopView.jpg">  
 
 基板のオモテ面に表面実装する場合。このビルドガイドでは、表面実装した例を紹介します。  
 <img width="700" alt="Raspberry Pi Pico on top of the board, soldered" src="https://github.com/3araht/yellowbrickroad/blob/main/pictures/yellowbrickroad_RaspberryPiPicoOnTop.jpg">  
