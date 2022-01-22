@@ -27,7 +27,10 @@ iPad や iPhone で yellowbrickroad を使う場合には電源が必要です�
 オプションにより、LED を搭載すれば写真のようにバックライト点灯させることが可能です（LEDのハンダ付けは難易度が高いので、ご注意ください）。
 
 # 外観および使用例
-また、こちらに[機能詳細紹介動画]()がございます(工事中)。
+こちらに演奏例の動画がございます。
+- [Follow the yellow brick road, from The Wizard Of Oz](https://youtu.be/TO6dwkSabww)  
+- [蛇腹談義風](https://youtu.be/xUlreAdGRG4)  
+- [うさぎとかめ](https://youtu.be/I4V0zeB1fko)  
 
 # キーボードキット
 遊舎工房でお求めいただけます。  
@@ -80,7 +83,10 @@ A rotary encoder in the middle can be used to change the settings of yellowbrick
 A wheel-type rotary encoder can be used to adjust the transpose by rotating the wheel, and change the layer to the next one by clicking it.  It can be used to change the octave settings by scrolling the wheel when the rotary encoder in the middle is long-pressed.  
 
 # How it looks & how it works
-Check this out!  
+Check these out!  
+- [Follow the yellow brick road, from The Wizard Of Oz](https://youtu.be/TO6dwkSabww)  
+- [Jiabaradangi-ish](https://youtu.be/xUlreAdGRG4)  
+- [Usagitokame, a fairy tale](https://youtu.be/I4V0zeB1fko)  
 
 A detailed introduction is shown [here]()(under construction).
 
