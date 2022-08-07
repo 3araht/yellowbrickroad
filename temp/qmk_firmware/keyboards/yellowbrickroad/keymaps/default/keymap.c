@@ -14,6 +14,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include QMK_KEYBOARD_H
+#include "version.h"
 
 // Long press: go to _FN , tap: MUTE
 #define FN_MUTE LT(_FN, KC_MUTE)
@@ -29,6 +30,11 @@ enum _names {
     _RESERVE03,
     _RESERVE04,
     _FN                  //  FN layer
+};
+
+// Defines the keycodes used by our macros in process_record_user
+enum custom_keycodes {
+    VERSION = SAFE_RANGE
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -94,7 +100,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, EEP_RST,
+        XXXXXXX, XXXXXXX, XXXXXXX, VERSION, EEP_RST,
         XXXXXXX, MI_OCTD, MI_OCTU,
         XXXXXXX
     ),
@@ -120,3 +126,14 @@ void eeconfig_init_user(void) {  // EEPROM is getting reset!
 void keyboard_post_init_user(void) {
     my_init();
 };
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case VERSION: // Output firmware info.
+            if (record->event.pressed) {
+                SEND_STRING(QMK_KEYBOARD ":" QMK_KEYMAP " @ " QMK_VERSION " | " QMK_BUILDDATE);
+            }
+            break;
+    }
+    return true;
+}
