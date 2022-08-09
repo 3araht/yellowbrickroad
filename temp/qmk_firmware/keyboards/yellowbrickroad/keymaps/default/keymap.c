@@ -34,7 +34,7 @@ enum _names {
 
 // Defines the keycodes used by our macros in process_record_user
 enum custom_keycodes {
-    VERSION = SAFE_RANGE
+    VERSION = USER00
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {

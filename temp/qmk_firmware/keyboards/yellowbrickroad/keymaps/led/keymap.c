@@ -84,24 +84,8 @@ enum _names {
 
 // Defines the keycodes used by our macros in process_record_user
 enum custom_keycodes {
-    BASELAY = SAFE_RANGE,   //  BASE LAYer
-    CHORDSB,                //  CHORDS Base
-    BASECHO,                //  BASE CHOrds
-    HEPTATO,                //  HEPTATOnic
-    PENTATO,                //  PENTATOnic
-
-    SHLAYER,                //  SHift LAYER
-    TGLBASS,                //  ToGgLe BASS unison
-    TGLMICH,                //  ToGgLe MIdi CHannel separation
-    MELDYAL,                //  MELody DYad Low
-    MELODYS,                //  MELODY Single
-    MELDYAH,                //  MELody DYad High
-    TGLUVEL,                //  ToGgLe Unison VELocity
-
-    VERSION,
-
     // MIDI Chord Keycodes - Root notes
-    MY_CHORD_MIN,
+    MY_CHORD_MIN = SAFE_RANGE,
 
     MI_CH_Cr = MY_CHORD_MIN,
     MI_CH_Csr,
@@ -201,7 +185,24 @@ enum custom_keycodes {
     MI_CH_BbDim7 = MI_CH_AsDim7,
     MI_CH_BDim7,
 
-    MY_CHORD_MAX = MI_CH_BDim7
+    MY_CHORD_MAX = MI_CH_BDim7,
+
+
+    BASELAY = USER00,       //  BASE LAYer
+    CHORDSB,                //  CHORDS Base
+    BASECHO,                //  BASE CHOrds
+    HEPTATO,                //  HEPTATOnic
+    PENTATO,                //  PENTATOnic
+
+    SHLAYER,                //  SHift LAYER
+    TGLBASS,                //  ToGgLe BASS unison
+    TGLMICH,                //  ToGgLe MIdi CHannel separation
+    MELDYAL,                //  MELody DYad Low
+    MELODYS,                //  MELODY Single
+    MELDYAH,                //  MELody DYad High
+    TGLUVEL,                //  ToGgLe Unison VELocity
+
+    VERSION
 };
 
 #define MY_CHORD_COUNT (MY_CHORD_MAX - MY_CHORD_MIN + 1)
