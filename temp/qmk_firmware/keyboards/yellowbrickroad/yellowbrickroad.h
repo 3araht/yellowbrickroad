@@ -27,22 +27,21 @@
  * represents the switch matrix.
  */
 #define LAYOUT( \
-    enc, ccw, cw, \
+    enc, \
     k01, k02, k03, k04, k05, k06, k07, \
     k08, k09, k10, k11, k12, k13, k14, k15, k16, k17, k18, k19, k20, k21, \
     k22, k23, k24, k25, k26, k27, k28, k29, k30, k31, k32, k33, k34, k35, k36, k37, k38, k39, k40, k41, k42, \
     k43, k44, k45, k46, k47, k48, k49, k50, k51, k52, k53, \
-    enc2, ccw2, cw2, \
+    enc2, \
     sustain \
 ) { \
-    { enc, k01, k02,  k03, k04,   k05,   k06,   k07     }, \
-    { k08, k09, k10,  k11, k12,   k13,   k14,   k15     }, \
-    { k16, k17, k18,  k19, k20,   k21,   k22,   k23     }, \
-    { k24, k25, k26,  k27, k28,   k29,   k30,   k31     }, \
-    { k32, k33, k34,  k35, k36,   k37,   k38,   k39     }, \
-    { k40, k41, k42,  k43, k44,   k45,   k46,   k47     }, \
-    { k48, k49, k50,  k51, k52,   k53,   enc2,  sustain }, \
-    { ccw, cw,  ccw2, cw2, KC_NO, KC_NO, KC_NO, KC_NO   } \
+    { enc,   k01,   k02,   k03,   k04,   k05,   k06,   k07     }, \
+    { k08,   k09,   k10,   k11,   k12,   k13,   k14,   k15     }, \
+    { k16,   k17,   k18,   k19,   k20,   k21,   k22,   k23     }, \
+    { k24,   k25,   k26,   k27,   k28,   k29,   k30,   k31     }, \
+    { k32,   k33,   k34,   k35,   k36,   k37,   k38,   k39     }, \
+    { k40,   k41,   k42,   k43,   k44,   k45,   k46,   k47     }, \
+    { k48,   k49,   k50,   k51,   k52,   k53,   enc2,  sustain }  \
 }
 
 #ifdef RGB_MATRIX_ENABLE
@@ -77,9 +76,3 @@ uint8_t shift_led_indicator_left(uint8_t scale_indicator_col, uint8_t upperlimit
 uint8_t shift_led_indicator_right(uint8_t scale_indicator_col, uint8_t upperlimit);
 
 void my_process_midi(uint8_t channel, uint16_t keycode, keyrecord_t *record, uint8_t *my_tone_status, int8_t offset, bool melody_unison_suppress);
-
-
-#ifdef ENCODER_ENABLE
-void encoder_action_unregister(void);
-void encoder_action_register(uint8_t index, bool clockwise);
-#endif  // ENCODER_ENABLE
