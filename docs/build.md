@@ -116,7 +116,7 @@ Raspberry Pi Pico の BOOTSEL ボタンを押しながらUSBケーブルで PC/M
 これで Raspberry Pi Pico の書き込みは終わりです。<br>
 (Raspberry Pi Pico を初めて使われる方は、手始めに LED の点滅＝通称「Lチカ」を試されると良いかもしれません。)<br>
 
-なお、一度このファームウェアを書き込むと、リセットボタンを素早く2回押すとブートローダ状態になるようになっているみたいです。なんて便利！(後述しますが、このファームウェア作成を可能にしてくださった せきごん さん様様です)。<br>
+なお、一度このファームウェアを書き込むと、リセットボタンを素早く2回押すとブートローダ状態になるようになっているみたいです。なんて便利！<br>
 
 ### 3.2 ###
 ### REMAP を使った初期キー配列の初期化 ###
@@ -295,20 +295,12 @@ LED の半田付けが終わったら、他のパーツの実装には270〜320�
 ## 付録 ##
 ### 10.1 ###
 ### コーディングされる場合の手順 ###
-2022/1/1現在、QMK はまだ Raspberry Pi Pico に完全対応していません。<br>
-暫定策として、せきごんさんが pico-sdk を使った方法を開拓してくださいました。<br>
-[せきごんさんのサイト](https://scrapbox.io/self-made-kbds-ja/RP2040%E5%AF%BE%E5%BF%9C%E3%81%AEQMK(%E9%9D%9E%E5%85%AC%E5%BC%8F)%E3%82%92%E5%8B%95%E3%81%8B%E3%81%99)<br>
-この場を借りて せきごん さんに改めて感謝致します。<br>
-なお、冒頭に書かれているように、QMK公式が対応するまでの暫定版、という位置付けらしいです。現状開示いただいている状態での活用を心がけています。せきごんさんに迷惑がかからないように、問い合わせなどはしないようにしましょう。<br>
-また、私も手探り状態で試してうまく行った事例を紹介してますが、もしかしたら間違ったやり方をしている可能性があります。ここで紹介する手順は、あまり自信が無い状態での情報シェアであることはご留意ください。<br>
-(コンパイル済みのものは問題無く動いているので大丈夫だと思うのですが。。。)
+QMK が Raspberry Pi Pico に対応しました。
+QMK firmware を Clone か Fork したあと、yellowbrickroad のコードをダウンロードし、お使いください。
 
 #### 10.1.1 ####
 #### コーディングされる場合の環境準備 ####
-まず、 [せきごんさんのサイト](https://scrapbox.io/self-made-kbds-ja/RP2040%E5%AF%BE%E5%BF%9C%E3%81%AEQMK(%E9%9D%9E%E5%85%AC%E5%BC%8F)%E3%82%92%E5%8B%95%E3%81%8B%E3%81%99)に従って、 pico-sdk や せきごんさん が準備された qmk_firmware を準備します。<br>
-「前準備」と「セットアップの確認」まで進めます。<br>
-尚、pico-sdk の環境がちゃんと準備できているか確認するためにも、[Raspberry Pi Pico のドキュメント](https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf)を参考に、Lチカ のサンプル(blink というサンプルです)を使って確認しておくと良いと思います。<br>
-
+まず、 [qmk_firmware](https://github.com/qmk/qmk_firmware) をClone か Fork しておきます。<br>
 その後、qmk_firmware のフォルダでsubmodule の準備をしておきます。<br>
 ```
 $ make git-submodule
@@ -331,65 +323,12 @@ $ git checkout c66df16 quantum/process_keycode/process_midi.c
 #### コンパイル ####
 qmk_firmware のフォルダで以下のコマンドを実行すると、
 ```
-$ make yellowbrickroad:led:uf2
+$ make yellowbrickroad:led:flash
 ```
 
-Raspberry Pi Pico をブートローダ状態にしたときにドラッグ＆ドロップでファームウェアを書き込める uf2 ファイルが出来上がる。。。はずなのですが、
-以下のようなエラーが出るかもしれません。(私の環境では出ました。)<br>
-```
-Assembler messages:
-Fatal error: can't create .build/obj_yellowbrickroad/src/bs2_default.o: No such file or directory
-make[1]: *** [.build/obj_yellowbrickroad/src/bs2_default.o] Error 1
-make: *** [yellowbrickroad:led:uf2] Error 1
-Make finished with errors
-```
-
-その場合は、以下のようにシンボリックリンクを張るとコンパイルが通るようになりました。<br>
-```
-(qmk_firmware のフォルダにいる状態から)
-$ make rp2040_example:default
-cd .build/obj_yellowbrickroad
-ln -s ../obj_rp2040_example/src .
-cd -
-```
-
-このリンクが張れるようにするには、その前に rp2040_example のコンパイルを実施しておく必要があります. 以下はそのためです。<br>
-```
-$ make rp2040_example:default
-```
-
-（ちょっと原因がわかっていないのですが、最初は obj_rp2040_example/src が生成されていたのですが、何度かやっていくうちに生成されなくなってしまいました。。。もしobj_rp2040_example/src が生成されない場合は、qmk_firmware のクローンからやり直すとうまく行くかもしれません。）
-
-次に以下のエラーがでてきたら、<br>
-```
-Traceback (most recent call last):
-  File "<path-to-your-qmk-folder>/qmk_firmware/./util/uf2conv.py", line 292, in <module>
-    main()
-  File "<path-to-your-qmk-folder>/qmk_firmware/./util/uf2conv.py", line 258, in main
-    with open(args.input, mode='rb') as f:
-FileNotFoundError: [Errno 2] No such file or directory: 'yellowbrickroad_led.bin'
-make[1]: *** [uf2] Error 1
-make: *** [yellowbrickroad:led:uf2] Error 1
-```
-
-tmk_core/pico.mk を少し修正します。<br>
-
-```
-./util/uf2conv.py -f 0xe48bff56 -b 0x10000000 -o $(TARGET).uf2 $(TARGET).bin
-->
-./util/uf2conv.py -f 0xe48bff56 -b 0x10000000 -o $(TARGET).uf2 $(BUILD_DIR)/$(TARGET).bin
-```
-
-これでコンパイルが通るようになり、 uf2 ファイルが出来上がったと思います。<br>
-ワーニングはまあまあ出てきます。が、とりあえずそのままで動きました。<br>
+Raspberry Pi Pico をブートローダ状態にしたときにドラッグ＆ドロップでファームウェアを書き込める uf2 ファイルが出来上がります。
 
 なお、ファームウェアの書き込みですが、以下のコマンドを実装するときに Raspberry Pi Pico をブートローダ状態にしておくと、自動で uf2 ファイルを Raspberry Pi Pico に書き込んでくれました。<br>
-```
-$ make yellowbrickroad:led:uf2
-(実行後、長いコンパイルの後、)
-Flashing /Volumes/RPI-RP2 (RPI-RP2)
-Wrote 130560 bytes to /Volumes/RPI-RP2/NEW.UF2.
-```
 
 #### 10.1.3 ####
 #### 初期キー配列の初期化 ####
