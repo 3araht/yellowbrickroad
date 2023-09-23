@@ -313,24 +313,41 @@ $ make git-submodule
 MIDIソフトによっては、同じ音を重ねて鳴らしたときにその音にUSBケーブルを抜き差しするまでサスティンがかかってしまう現象がありました。
 ~~対策方法がわかりましたので、それを適用します（こちらも pull request 中。正式に採用されるまでの暫定対策）。
 2020/10/5 pull request が メインブランチにマージされました。最新のソフトを clone いただければOKです。~~<br>
-2021/04/13 残念ながら、2021/3/25 の process_midi.c の更新により、再びこの問題が復活しています。
-コンパイル前に以下のコマンドでエンバグ前のコードを引っ張り出してコンパイルしてください。
+2021/04/13 残念ながら、2021/3/25 の process_midi.c の更新により、再びこの問題が復活しています。<br>
+2023/09/23 以下の Pull Request から下記ファイルを取得し、`process_midi.c` を差し替えてください。
+
+https://github.com/qmk/qmk_firmware/pull/22114
+https://github.com/qmk/qmk_firmware/blob/e8906ed2ea0b9f20291b2759d4d65fc6c334ab39/quantum/process_keycode/process_midi.c
+
 ```
-$ git checkout c66df16 quantum/process_keycode/process_midi.c
+quantum/process_keycode/process_midi.c
 ```
 
+ちなみに上記 Pull Request は Reject されることが予想されます。`process_midi.c` は別の方の使用目的と conflict しているようです。
+
 #### 10.1.2 ####
+#### カスタマイズ ####
+キーマップの変更など、自由にカスタマイズしてください。
+
+#### 10.1.3 ####
 #### コンパイル ####
 qmk_firmware のフォルダで以下のコマンドを実行すると、
 ```
-$ make yellowbrickroad:led:flash
+$ make yellowbrickroad:led
 ```
 
 Raspberry Pi Pico をブートローダ状態にしたときにドラッグ＆ドロップでファームウェアを書き込める uf2 ファイルが出来上がります。
 
 なお、ファームウェアの書き込みですが、以下のコマンドを実装するときに Raspberry Pi Pico をブートローダ状態にしておくと、自動で uf2 ファイルを Raspberry Pi Pico に書き込んでくれました。<br>
+```
+$ make yellowbrickroad:led:flash
+(実行後、長いコンパイルの後、)
+Flashing for bootloader: rp2040
+Flashing /Volumes/RPI-RP2 (RPI-RP2)
+Wrote 109056 bytes to /Volumes/RPI-RP2/NEW.UF2
+```
 
-#### 10.1.3 ####
+#### 10.1.4 ####
 #### 初期キー配列の初期化 ####
 ファームウェアを書き込んだ後は、[REMAP を使った初期キー配列の初期化](#32) を参考にしてキー配列を初期化してください。<br>
 

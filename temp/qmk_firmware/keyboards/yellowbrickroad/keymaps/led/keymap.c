@@ -19,7 +19,7 @@
 // Long press: go to _FN , tap: MUTE
 #define FN_MUTE LT(_FN, KC_MUTE)
 
-// Used to set octave to MI_OCT_0
+// Used to set octave to QK_MIDI_OCTAVE_0
 extern midi_config_t midi_config;
 static bool is_trans_mode = false;     //  By default, shift mode is chosen.
 
@@ -239,7 +239,7 @@ enum custom_keycodes {
     FLIPPEN,                //  FLIP PENtatonic
 
 
-    TGLTRNS = USER00,       //  ToGgLe TRaNS and shift mode
+    TGLTRNS = QK_KB_0,       //  ToGgLe TRaNS and shift mode
     SHIFT_L,                //  SHIFT led indicator Left
     SHIFT_R,                //  SHIFT led indicator Right
     SHLAYER,                //  SHift LAYER
@@ -264,13 +264,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_BASE] = LAYOUT(
         FN_MUTE,
-        MI_C_1,         MI_Db_1,        MI_D_1,         MI_Eb_1,        MI_E_1,         MI_F_1,         MI_Fs_1,        MI_G_1,         MI_Ab_1,        MI_A_1,         MI_Bb_1,        MI_B_1,
-        MI_C_2,         MI_Db_2,        MI_D_2,         MI_Eb_2,        MI_E_2,         MI_F_2,         MI_Fs_2,        MI_G_2,         MI_Ab_2,        MI_A_2,         MI_Bb_2,        MI_B_2,
-        MI_C_3,         MI_Db_3,        MI_D_3,         MI_Eb_3,        MI_E_3,         MI_F_3,         MI_Fs_3,        MI_G_3,         MI_Ab_3,        MI_A_3,         MI_Bb_3,        MI_B_3,
-        MI_C_4,         MI_Db_4,        MI_D_4,         MI_Eb_4,        MI_E_4,         MI_F_4,         MI_Fs_4,        MI_G_4,         MI_Ab_4,        MI_A_4,         MI_Bb_4,        MI_B_4,
-        MI_C_5,         MI_Db_5,        MI_D_5,         MI_Eb_5,        MI_E_5,
+        MI_C1,         MI_Db1,        MI_D1,         MI_Eb1,        MI_E1,         MI_F1,         MI_Fs1,        MI_G1,         MI_Ab1,        MI_A1,         MI_Bb1,        MI_B1,
+        MI_C2,         MI_Db2,        MI_D2,         MI_Eb2,        MI_E2,         MI_F2,         MI_Fs2,        MI_G2,         MI_Ab2,        MI_A2,         MI_Bb2,        MI_B2,
+        MI_C3,         MI_Db3,        MI_D3,         MI_Eb3,        MI_E3,         MI_F3,         MI_Fs3,        MI_G3,         MI_Ab3,        MI_A3,         MI_Bb3,        MI_B3,
+        MI_C4,         MI_Db4,        MI_D4,         MI_Eb4,        MI_E4,         MI_F4,         MI_Fs4,        MI_G4,         MI_Ab4,        MI_A4,         MI_Bb4,        MI_B4,
+        MI_C5,         MI_Db5,        MI_D5,         MI_Eb5,        MI_E5,
         SHLAYER,
-        MI_SUS
+        MI_SUST
     ),
 
     [_CHORDS] = LAYOUT(
@@ -286,8 +286,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_BASEANDCHORDS] = LAYOUT(
         _______,
-        MI_C_2,         MI_Db_2,        MI_D_2,         MI_Eb_2,        MI_E_2,         MI_F_2,         MI_Fs_2,        MI_G_2,         MI_Ab_2,        MI_A_2,         MI_Bb_2,       MI_B_2,
-        MI_C_3,         MI_Db_3,        MI_D_3,         MI_Eb_3,        MI_E_3,         MI_F_3,         MI_Fs_3,        MI_G_3,         MI_Ab_3,        MI_A_3,         MI_Bb_3,       MI_B_3,
+        MI_C2,          MI_Db2,         MI_D2,          MI_Eb2,         MI_E2,          MI_F2,          MI_Fs2,         MI_G2,          MI_Ab2,         MI_A2,          MI_Bb2,        MI_B2,
+        MI_C3,          MI_Db3,         MI_D3,          MI_Eb3,         MI_E3,          MI_F3,          MI_Fs3,         MI_G3,          MI_Ab3,         MI_A3,          MI_Bb3,        MI_B3,
         MI_CH_C,        MI_CH_Db,       MI_CH_D,        MI_CH_Eb,       MI_CH_E,        MI_CH_F,        MI_CH_Fs,       MI_CH_G,        MI_CH_Ab,       MI_CH_A,        MI_CH_Bb,      MI_CH_B,
         MI_CH_Cm,       MI_CH_Dbm,      MI_CH_Dm,       MI_CH_Ebm,      MI_CH_Em,       MI_CH_Fm,       MI_CH_Fsm,      MI_CH_Gm,       MI_CH_Abm,      MI_CH_Am,       MI_CH_Bbm,     MI_CH_Bm,
         MI_CH_CDom7,    MI_CH_DbDom7,   MI_CH_DDom7,    MI_CH_EbDom7,   MI_CH_EDom7,
@@ -298,11 +298,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_HEPTATONIC] = LAYOUT(
         _______,
         MI_C,           MI_D,           MI_E,           MI_F,           MI_G,           MI_A,           MI_B,
-        MI_C_1,         MI_D_1,         MI_E_1,         MI_F_1,         MI_G_1,         MI_A_1,         MI_B_1,
-        MI_C_2,         MI_D_2,         MI_E_2,         MI_F_2,         MI_G_2,         MI_A_2,         MI_B_2,
-        MI_C_3,         MI_D_3,         MI_E_3,         MI_F_3,         MI_G_3,         MI_A_3,         MI_B_3,
-        MI_C_4,         MI_D_4,         MI_E_4,         MI_F_4,         MI_G_4,         MI_A_4,         MI_B_4,
-        MI_C_5,         MI_D_5,         MI_E_5,         MI_F_5,         MI_G_5,         MI_A_5,         MI_B_5,
+        MI_C1,          MI_D1,          MI_E1,          MI_F1,          MI_G1,          MI_A1,          MI_B1,
+        MI_C2,          MI_D2,          MI_E2,          MI_F2,          MI_G2,          MI_A2,          MI_B2,
+        MI_C3,          MI_D3,          MI_E3,          MI_F3,          MI_G3,          MI_A3,          MI_B3,
+        MI_C4,          MI_D4,          MI_E4,          MI_F4,          MI_G4,          MI_A4,          MI_B4,
+        MI_C5,          MI_D5,          MI_E5,          MI_F5,          MI_G5,          MI_A5,          MI_B5,
         MI_CH_C,        MI_CH_D,        MI_CH_E,        MI_CH_F,        MI_CH_G,        MI_CH_A,        MI_CH_B,
         MI_CH_Cm,       MI_CH_Dm,       MI_CH_Em,       MI_CH_Fm,
         _______,
@@ -312,11 +312,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_PENTATONIC] = LAYOUT(
         _______,
         MI_C,           MI_D,           MI_E,           MI_G,           MI_A,
-        MI_C_1,         MI_D_1,         MI_E_1,         MI_G_1,         MI_A_1,
-        MI_C_2,         MI_D_2,         MI_E_2,         MI_G_2,         MI_A_2,
-        MI_C_3,         MI_D_3,         MI_E_3,         MI_G_3,         MI_A_3,
-        MI_C_4,         MI_D_4,         MI_E_4,         MI_G_4,         MI_A_4,
-        MI_C_5,         MI_D_5,         MI_E_5,         MI_G_5,         MI_A_5,
+        MI_C1,          MI_D1,          MI_E1,          MI_G1,          MI_A1,
+        MI_C2,          MI_D2,          MI_E2,          MI_G2,          MI_A2,
+        MI_C3,          MI_D3,          MI_E3,          MI_G3,          MI_A3,
+        MI_C4,          MI_D4,          MI_E4,          MI_G4,          MI_A4,
+        MI_C5,          MI_D5,          MI_E5,          MI_G5,          MI_A5,
         MI_CH_C,        MI_CH_D,        MI_CH_E,        MI_CH_G,        MI_CH_A,
         MI_CH_Cr,       MI_CH_Dr,       MI_CH_Er,       MI_CH_Gr,       MI_CH_Ar,
         MI_CH_Cm,       MI_CH_Dm,       MI_CH_Em,       MI_CH_Gm,       MI_CH_Am,
@@ -339,11 +339,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_FLIP] = LAYOUT(
         _______,
-        MI_C_5,         MI_B_4,         MI_Bb_4,        MI_A_4,         MI_Ab_4,        MI_G_4,         MI_Fs_4,        MI_F_4,         MI_E_4,         MI_Eb_4,        MI_D_4,         MI_Db_4,
-        MI_C_4,         MI_B_3,         MI_Bb_3,        MI_A_3,         MI_Ab_3,        MI_G_3,         MI_Fs_3,        MI_F_3,         MI_E_3,         MI_Eb_3,        MI_D_3,         MI_Db_3,
-        MI_C_3,         MI_B_2,         MI_Bb_2,        MI_A_2,         MI_Ab_2,        MI_G_2,         MI_Fs_2,        MI_F_2,         MI_E_2,         MI_Eb_2,        MI_D_2,         MI_Db_2,
-        MI_C_2,         MI_B_1,         MI_Bb_1,        MI_A_1,         MI_Ab_1,        MI_G_1,         MI_Fs_1,        MI_F_1,         MI_E_1,         MI_Eb_1,        MI_D_1,         MI_Db_1,
-        MI_C_1,         MI_B,           MI_Bb,          MI_A,           MI_Ab,
+        MI_C5,          MI_B4,          MI_Bb4,         MI_A4,          MI_Ab4,         MI_G4,          MI_Fs4,         MI_F4,          MI_E4,          MI_Eb4,         MI_D4,          MI_Db4,
+        MI_C4,          MI_B3,          MI_Bb3,         MI_A3,          MI_Ab3,         MI_G3,          MI_Fs3,         MI_F3,          MI_E3,          MI_Eb3,         MI_D3,          MI_Db3,
+        MI_C3,          MI_B2,          MI_Bb2,         MI_A2,          MI_Ab2,         MI_G2,          MI_Fs2,         MI_F2,          MI_E2,          MI_Eb2,         MI_D2,          MI_Db2,
+        MI_C2,          MI_B1,          MI_Bb1,         MI_A1,          MI_Ab1,         MI_G1,          MI_Fs1,         MI_F1,          MI_E1,          MI_Eb1,         MI_D1,          MI_Db1,
+        MI_C1,          MI_B,           MI_Bb,          MI_A,           MI_Ab,
         _______,
         _______
     ),
@@ -361,8 +361,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_FLIPBASEANDCHORDS] = LAYOUT(
         _______,
-        MI_C_4,         MI_B_3,         MI_Bb_3,        MI_A_3,         MI_Ab_3,        MI_G_3,         MI_Fs_3,        MI_F_3,         MI_E_3,         MI_Eb_3,        MI_D_3,         MI_Db_3,
-        MI_C_3,         MI_B_2,         MI_Bb_2,        MI_A_2,         MI_Ab_2,        MI_G_2,         MI_Fs_2,        MI_F_2,         MI_E_2,         MI_Eb_2,        MI_D_2,         MI_Db_2,
+        MI_C4,          MI_B3,          MI_Bb3,         MI_A3,          MI_Ab3,         MI_G3,          MI_Fs3,         MI_F3,          MI_E3,          MI_Eb3,         MI_D3,          MI_Db3,
+        MI_C3,          MI_B2,          MI_Bb2,         MI_A2,          MI_Ab2,         MI_G2,          MI_Fs2,         MI_F2,          MI_E2,          MI_Eb2,         MI_D2,          MI_Db2,
         MI_CH_Cr,       MI_CH_Br,       MI_CH_Bbr,      MI_CH_Ar,       MI_CH_Abr,      MI_CH_Gr,       MI_CH_Fsr,      MI_CH_Fr,       MI_CH_Er,       MI_CH_Ebr,      MI_CH_Dr,       MI_CH_Dbr,
         MI_CH_C,        MI_CH_B,        MI_CH_Bb,       MI_CH_A,        MI_CH_Ab,       MI_CH_G,        MI_CH_Fs,       MI_CH_F,        MI_CH_E,        MI_CH_Eb,       MI_CH_D,        MI_CH_Db,
         MI_CH_Cm,       MI_CH_Bm,       MI_CH_Bbm,      MI_CH_Am,       MI_CH_Abm,
@@ -372,11 +372,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_FLIPHEPTA] = LAYOUT(
         _______,
-        MI_C_5,         MI_B_4,         MI_A_4,         MI_G_4,         MI_F_4,         MI_E_4,         MI_D_4,
-        MI_C_4,         MI_B_3,         MI_A_3,         MI_G_3,         MI_F_3,         MI_E_3,         MI_D_3,
-        MI_C_3,         MI_B_2,         MI_A_2,         MI_G_2,         MI_F_2,         MI_E_2,         MI_D_2,
-        MI_C_2,         MI_B_1,         MI_A_1,         MI_G_1,         MI_F_1,         MI_E_1,         MI_D_1,
-        MI_C_1,         MI_B,           MI_A,           MI_G,           MI_F,           MI_E,           MI_D,
+        MI_C5,          MI_B4,          MI_A4,          MI_G4,          MI_F4,          MI_E4,          MI_D4,
+        MI_C4,          MI_B3,          MI_A3,          MI_G3,          MI_F3,          MI_E3,          MI_D3,
+        MI_C3,          MI_B2,          MI_A2,          MI_G2,          MI_F2,          MI_E2,          MI_D2,
+        MI_C2,          MI_B1,          MI_A1,          MI_G1,          MI_F1,          MI_E1,          MI_D1,
+        MI_C1,          MI_B,           MI_A,           MI_G,           MI_F,           MI_E,           MI_D,
         MI_CH_C,        MI_CH_B,        MI_CH_A,        MI_CH_G,        MI_CH_F,        MI_CH_E,        MI_CH_D,
         MI_CH_Cm,       MI_CH_Bm,       MI_CH_Am,       MI_CH_Gm,       MI_CH_Fm,       MI_CH_Em,       MI_CH_Dm,
         MI_CH_CDom7,    MI_CH_BDom7,    MI_CH_ADom7,    MI_CH_GDom7,
@@ -386,11 +386,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_FLIPPENTA] = LAYOUT(
         _______,
-        MI_C_5,         MI_A_4,         MI_G_4,         MI_E_4,         MI_D_4,
-        MI_C_4,         MI_A_3,         MI_G_3,         MI_E_3,         MI_D_3,
-        MI_C_3,         MI_A_2,         MI_G_2,         MI_E_2,         MI_D_2,
-        MI_C_2,         MI_A_1,         MI_G_1,         MI_E_1,         MI_D_1,
-        MI_C_1,         MI_A,           MI_G,           MI_E,           MI_D,
+        MI_C5,          MI_A4,          MI_G4,          MI_E4,          MI_D4,
+        MI_C4,          MI_A3,          MI_G3,          MI_E3,          MI_D3,
+        MI_C3,          MI_A2,          MI_G2,          MI_E2,          MI_D2,
+        MI_C2,          MI_A1,          MI_G1,          MI_E1,          MI_D1,
+        MI_C1,          MI_A,           MI_G,           MI_E,           MI_D,
         MI_CH_C,        MI_CH_A,        MI_CH_G,        MI_CH_E,        MI_CH_D,
         MI_CH_Cr,       MI_CH_Ar,       MI_CH_Gr,       MI_CH_Er,       MI_CH_Dr,
         MI_CH_Cm,       MI_CH_Am,       MI_CH_Gm,       MI_CH_Em,       MI_CH_Dm,
@@ -421,27 +421,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         RGB_VAI,        RGB_RMOD,       RGB_MOD,        RGB_TOG,        TGLINDI,        XXXXXXX,        XXXXXXX,
         XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,
         XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,
-        XXXXXXX,        XXXXXXX,        VERSION,        EEP_RST,
+        XXXXXXX,        XXXXXXX,        VERSION,        EE_CLR,
         XXXXXXX,
         XXXXXXX
-    ),
+    )
 };
 
 #if defined(ENCODER_MAP_ENABLE)
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
-    [_BASE]              = { ENCODER_CCW_CW(KC_VOLD,  KC_VOLU), ENCODER_CCW_CW(SHIFT_L,  SHIFT_R)  },
-    [_CHORDS]            = { ENCODER_CCW_CW(_______,  _______), ENCODER_CCW_CW(_______,  _______)  },
-    [_BASEANDCHORDS]     = { ENCODER_CCW_CW(_______,  _______), ENCODER_CCW_CW(_______,  _______)  },
-    [_HEPTATONIC]        = { ENCODER_CCW_CW(_______,  _______), ENCODER_CCW_CW(_______,  _______)  },
-    [_PENTATONIC]        = { ENCODER_CCW_CW(_______,  _______), ENCODER_CCW_CW(_______,  _______)  },
-    [_TRANS]             = { ENCODER_CCW_CW(_______,  _______), ENCODER_CCW_CW(MI_TRNSD, MI_TRNSU) },
-    [_FLIP]              = { ENCODER_CCW_CW(_______,  _______), ENCODER_CCW_CW(_______,  _______)  },
-    [_FLIPCHORDS]        = { ENCODER_CCW_CW(_______,  _______), ENCODER_CCW_CW(_______,  _______)  },
-    [_FLIPBASEANDCHORDS] = { ENCODER_CCW_CW(_______,  _______), ENCODER_CCW_CW(_______,  _______)  },
-    [_FLIPHEPTA]         = { ENCODER_CCW_CW(_______,  _______), ENCODER_CCW_CW(_______,  _______)  },
-    [_FLIPPENTA]         = { ENCODER_CCW_CW(_______,  _______), ENCODER_CCW_CW(_______,  _______)  },
-    [_FLIPTRANS]         = { ENCODER_CCW_CW(_______,  _______), ENCODER_CCW_CW(MI_TRNSU, MI_TRNSD) },
-    [_FN]                = { ENCODER_CCW_CW(RGB_RMOD, RGB_MOD), ENCODER_CCW_CW(MI_OCTD,  MI_OCTU)  },
+    [_BASE]              = { ENCODER_CCW_CW(KC_VOLD,  KC_VOLU), ENCODER_CCW_CW(SHIFT_L, SHIFT_R)  },
+    [_CHORDS]            = { ENCODER_CCW_CW(_______,  _______), ENCODER_CCW_CW(_______, _______)  },
+    [_BASEANDCHORDS]     = { ENCODER_CCW_CW(_______,  _______), ENCODER_CCW_CW(_______, _______)  },
+    [_HEPTATONIC]        = { ENCODER_CCW_CW(_______,  _______), ENCODER_CCW_CW(_______, _______)  },
+    [_PENTATONIC]        = { ENCODER_CCW_CW(_______,  _______), ENCODER_CCW_CW(_______, _______)  },
+    [_TRANS]             = { ENCODER_CCW_CW(_______,  _______), ENCODER_CCW_CW(MI_TRSD, MI_TRSU) },
+    [_FLIP]              = { ENCODER_CCW_CW(_______,  _______), ENCODER_CCW_CW(_______, _______)  },
+    [_FLIPCHORDS]        = { ENCODER_CCW_CW(_______,  _______), ENCODER_CCW_CW(_______, _______)  },
+    [_FLIPBASEANDCHORDS] = { ENCODER_CCW_CW(_______,  _______), ENCODER_CCW_CW(_______, _______)  },
+    [_FLIPHEPTA]         = { ENCODER_CCW_CW(_______,  _______), ENCODER_CCW_CW(_______, _______)  },
+    [_FLIPPENTA]         = { ENCODER_CCW_CW(_______,  _______), ENCODER_CCW_CW(_______, _______)  },
+    [_FLIPTRANS]         = { ENCODER_CCW_CW(_______,  _______), ENCODER_CCW_CW(MI_TRSU, MI_TRSD) },
+    [_FN]                = { ENCODER_CCW_CW(RGB_RMOD, RGB_MOD), ENCODER_CCW_CW(MI_OCTD, MI_OCTU)  }
 };
 #endif
 
@@ -453,8 +453,8 @@ void reset_scale_indicator(void) {
 }
 
 void my_init(void){
-    //  Set octave to MI_OCT_0
-    midi_config.octave = MI_OCT_0 - MIDI_OCTAVE_MIN;
+    //  Set octave to QK_MIDI_OCTAVE_0
+    midi_config.octave = QK_MIDI_OCTAVE_0 - MIDI_OCTAVE_MIN;
     // avoid using 127 since it is used as a special number in some sound sources.
     midi_config.velocity = MIDI_INITIAL_VELOCITY;
 
@@ -470,7 +470,7 @@ void _load_eeprom_data(void){
 
 void eeconfig_init_user(void) {  // EEPROM is getting reset!
     midi_init();  // in midi_init(), octave is set to MI_OCT_2.
-    my_init();    // Octave is set to MI_OCT_0, velocity is set to MIDI_INITIAL_VELOCITY. etc.
+    my_init();    // Octave is set to QK_MIDI_OCTAVE_0, velocity is set to MIDI_INITIAL_VELOCITY. etc.
 
     // UNISON flags
     melody_dyad_high = false;  //  true when +1 octave unison dyad is enabled.
@@ -487,12 +487,6 @@ void eeconfig_init_user(void) {  // EEPROM is getting reset!
     layer_state_set(_LS_BASE);
     current_default_layer = _BASE;
     layerFlipMode = false;
-
-#ifdef RGB_MATRIX_ENABLE
-    rgb_matrix_sethsv(HSV_BLUE);
-    //  party mode (for LED soldering test.)
-    rgb_matrix_mode(RGB_MATRIX_RAINBOW_MOVING_CHEVRON);
-#endif
 }
 
 void keyboard_post_init_user(void) {
@@ -508,12 +502,6 @@ void keyboard_post_init_user(void) {
     //  load EEPROM data for isSingleBass
     user_config.raw = eeconfig_read_user();
     _load_eeprom_data();
-
-#ifdef RGB_MATRIX_ENABLE
-    rgb_matrix_sethsv(HSV_BLUE);
-    //  party mode (for LED soldering test.)
-    rgb_matrix_mode(RGB_MATRIX_RAINBOW_MOVING_CHEVRON);
-#endif
 };
 
 
@@ -528,7 +516,7 @@ void set_led_c_indicator(uint8_t scaleID, uint8_t r, uint8_t g, uint8_t b) {
     }
 }
 
-void rgb_matrix_indicators_user(void) {
+bool rgb_matrix_indicators_user(void) {
     uint8_t i;
 
     if (rgb_matrix_is_enabled()) {  // turn the lights on when it is enabled.
@@ -604,10 +592,11 @@ void rgb_matrix_indicators_user(void) {
                 rgb_matrix_set_color(33, RGB_DARKSPRINGGREEN);  //  TGLINDI
 
                 rgb_matrix_set_color(52, RGB_DARKGOLD);         //  VESRION
-                rgb_matrix_set_color(53, RGB_DARKPINK);         //  EEP_RST
+                rgb_matrix_set_color(53, RGB_DARKPINK);         //  EE_CLR
                 break;
         }
     }
+    return false;
 }
 
 // set_scale_upperlimit() is called from shift_led_indicator_left() and shift_led_indicator_right().
@@ -959,30 +948,30 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
         // MIDI Chord Keycodes, on the left side.
         case MI_CH_Cr ... MI_CH_Br:  // Root Notes
-            root_note = keycode - MI_CH_Cr + MI_C_1;
+            root_note = keycode - MI_CH_Cr + MI_C1;
             my_process_midi4Bass(midi_bass_ch, record, chord_status, chord, root_note, IS_SINGLE_BASS());
             break;
 
         case MI_CH_C ... MI_CH_B:  // Major Chords
-            root_note = keycode - MI_CH_C + MI_C_2;
+            root_note = keycode - MI_CH_C + MI_C2;
             // Root, Major Third, and Fifth Notes
             my_process_midi4TriadChords(midi_chord_ch, record, chord_status, chord, root_note, 0, 4, 7);
             break;
 
         case MI_CH_Cm ... MI_CH_Bm:  // Minor Chord
-            root_note = keycode - MI_CH_Cm + MI_C_2;
+            root_note = keycode - MI_CH_Cm + MI_C2;
             // Root, Minor Third, and Fifth Notes
             my_process_midi4TriadChords(midi_chord_ch, record, chord_status, chord, root_note, 0, 3, 7);
             break;
 
         case MI_CH_CDom7 ... MI_CH_BDom7:  // Dominant 7th Chord
-            root_note = keycode - MI_CH_CDom7 + MI_C_2;
+            root_note = keycode - MI_CH_CDom7 + MI_C2;
             // Major Third, Major Fifth, and Minor Seventh Notes
             my_process_midi4TriadChords(midi_chord_ch, record, chord_status, chord, root_note, 4, 7, 10);
             break;
 
         case MI_CH_CDim7 ... MI_CH_BDim7:                // Diminished 7th Chord
-            root_note = keycode - MI_CH_CDim7 + MI_C_2;
+            root_note = keycode - MI_CH_CDim7 + MI_C2;
             // Root, Minor Third, and Diminished 5th Note
             my_process_midi4TriadChords(midi_chord_ch, record, chord_status, chord, root_note, 0, 3, 6);
             break;
